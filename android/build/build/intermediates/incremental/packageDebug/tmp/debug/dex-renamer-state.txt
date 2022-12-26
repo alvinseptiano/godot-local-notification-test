@@ -1,0 +1,4 @@
+#Mon Dec 26 17:55:47 WIB 2022
+base.0=/home/alvin/repos/UAS_MOBILE_PROGRAMMING/android/build/build/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

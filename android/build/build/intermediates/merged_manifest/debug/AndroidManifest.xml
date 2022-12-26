@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mobile.programming"
+    android:installLocation="auto"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="32" />
+
+    <supports-screens
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
+    <!-- glEsVersion is modified by the exporter, changing this value here has no effect. -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <application
+        android:allowBackup="false"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:hasFragileUserData="false"
+        android:icon="@mipmap/icon"
+        android:isGame="false"
+        android:label="@string/godot_project_name_string"
+        android:requestLegacyExternalStorage="true" >
+        <activity
+            android:name="com.godot.game.GodotApp"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
+            android:excludeFromRecents="false"
+            android:exported="true"
+            android:label="@string/godot_project_name_string"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/GodotAppSplashTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <!--
+                Enable access to OpenXR on Oculus mobile devices, no-op on other Android
+                platforms.
+                -->
+                <category android:name="com.oculus.intent.category.VR" />
+            </intent-filter>
+        </activity>
+        <!-- Records the version of the Godot editor used for building -->
+        <meta-data
+            android:name="org.godotengine.editor.version"
+            android:value="3.5.1.stable" /> <!-- Records the version of the Godot library -->
+        <meta-data
+            android:name="org.godotengine.library.version"
+            android:value="3.5.1.stable" />
+
+        <service android:name="org.godotengine.godot.GodotDownloaderService" />
+
+        <activity
+            android:name="org.godotengine.godot.utils.ProcessPhoenix"
+            android:exported="false"
+            android:process=":phoenix"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+    Plugin metadata:
+    - In the `android:name` attribute, the `org.godotengine.plugin.v1` prefix
+    is required so Godot can recognize the project as a valid Godot
+    Android plugin. The plugin name following the prefix should match the value
+    of the plugin name returned by the plugin initializer.
+    - The `android:value` attribute should be the classpath to the plugin
+    initializer.
+        -->
+        <meta-data
+            android:name="org.godotengine.plugin.v1.LocalNotification"
+            android:value="ru.mobilap.localnotification.LocalNotification" />
+
+        <receiver
+            android:name="ru.mobilap.localnotification.LocalNotificationReceiver"
+            android:process=":remote" />
+    </application>
+
+</manifest>

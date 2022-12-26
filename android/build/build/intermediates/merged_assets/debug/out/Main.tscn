@@ -1,0 +1,463 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://gfx/FiraCode-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/OTP.gd" type="Script" id=2]
+[ext_resource path="res://src/Control.gd" type="Script" id=3]
+[ext_resource path="res://gfx/close.png" type="Texture" id=4]
+[ext_resource path="res://src/Login.gd" type="Script" id=5]
+[ext_resource path="res://src/NewAccount.gd" type="Script" id=6]
+[ext_resource path="res://gfx/back_icon.png" type="Texture" id=7]
+[ext_resource path="res://gfx/BIG_FONT.tres" type="DynamicFont" id=8]
+[ext_resource path="res://src/TextEditor.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.266667, 0.278431, 0.352941, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.266667, 0.278431, 0.352941, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.266667, 0.278431, 0.352941, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.12549, 0.133333, 0.172549, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id=9]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.384314, 0.447059, 0.643137, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.384314, 0.447059, 0.643137, 1 )
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[sub_resource type="Theme" id=5]
+default_font = SubResource( 1 )
+Button/fonts/font = SubResource( 1 )
+Button/styles/focus = SubResource( 6 )
+Button/styles/hover = SubResource( 7 )
+Button/styles/normal = SubResource( 2 )
+Button/styles/pressed = SubResource( 8 )
+LineEdit/styles/focus = SubResource( 9 )
+LineEdit/styles/normal = SubResource( 3 )
+Panel/styles/panel = SubResource( 4 )
+
+[sub_resource type="DynamicFontData" id=16]
+font_path = "res://gfx/FiraCode-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+size = 27
+outline_size = 2
+outline_color = Color( 0.360784, 0.360784, 0.360784, 1 )
+use_filter = true
+font_data = SubResource( 16 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 14
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=13]
+font_path = "res://gfx/FiraCode-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=14]
+size = 7
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 13 )
+
+[sub_resource type="Theme" id=15]
+default_font = SubResource( 14 )
+
+[node name="Main" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 5 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BG" type="ColorRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.156863, 0.164706, 0.211765, 1 )
+
+[node name="Login" type="Control" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="BG" type="ColorRect" parent="Control/Login"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.156863, 0.164706, 0.211765, 1 )
+
+[node name="Username" type="HBoxContainer" parent="Control/Login"]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 144.0
+margin_right = -20.0
+margin_bottom = 184.0
+
+[node name="Label" type="Label" parent="Control/Login/Username"]
+margin_top = 10.0
+margin_right = 156.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "Username"
+
+[node name="LineEdit" type="LineEdit" parent="Control/Login/Username"]
+margin_left = 160.0
+margin_right = 320.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+align = 1
+placeholder_text = "..."
+
+[node name="Password" type="HBoxContainer" parent="Control/Login"]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 206.0
+margin_right = -20.0
+margin_bottom = 246.0
+
+[node name="Label" type="Label" parent="Control/Login/Password"]
+margin_top = 10.0
+margin_right = 156.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "Password"
+
+[node name="LineEdit" type="LineEdit" parent="Control/Login/Password"]
+margin_left = 160.0
+margin_right = 320.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+align = 1
+secret = true
+placeholder_text = "..."
+
+[node name="Login" type="Button" parent="Control/Login"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -48.0
+margin_right = -20.0
+margin_bottom = -18.0
+text = "LOGIN"
+icon_align = 1
+
+[node name="NewAccount" type="LinkButton" parent="Control/Login"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 230.0
+margin_top = 282.0
+margin_right = -20.0
+margin_bottom = -470.0
+text = "New Account"
+
+[node name="Label2" type="Label" parent="Control/Login"]
+anchor_right = 1.0
+margin_top = 37.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 17 )
+text = "LOGIN"
+align = 1
+valign = 1
+
+[node name="NewAccount" type="Control" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="BG" type="ColorRect" parent="Control/NewAccount"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.156863, 0.164706, 0.211765, 1 )
+
+[node name="Username" type="HBoxContainer" parent="Control/NewAccount"]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 142.0
+margin_right = -20.0
+margin_bottom = 182.0
+
+[node name="Label" type="Label" parent="Control/NewAccount/Username"]
+margin_top = 10.0
+margin_right = 156.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "Username"
+
+[node name="LineEdit" type="LineEdit" parent="Control/NewAccount/Username"]
+margin_left = 160.0
+margin_right = 320.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+align = 1
+placeholder_text = "..."
+
+[node name="Password" type="HBoxContainer" parent="Control/NewAccount"]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 204.0
+margin_right = -20.0
+margin_bottom = 244.0
+
+[node name="Label" type="Label" parent="Control/NewAccount/Password"]
+margin_top = 10.0
+margin_right = 156.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "Password"
+
+[node name="LineEdit" type="LineEdit" parent="Control/NewAccount/Password"]
+margin_left = 160.0
+margin_right = 320.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 3
+align = 1
+placeholder_text = "..."
+
+[node name="Signup" type="Button" parent="Control/NewAccount"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -48.0
+margin_right = -20.0
+margin_bottom = -18.0
+text = "SIGN UP"
+icon_align = 1
+
+[node name="Back" type="Button" parent="Control/NewAccount"]
+margin_left = 20.0
+margin_top = 58.0
+margin_right = 53.0
+margin_bottom = 92.0
+icon = ExtResource( 7 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="Label2" type="Label" parent="Control/NewAccount"]
+anchor_right = 1.0
+margin_left = 55.0
+margin_top = 35.0
+margin_bottom = 109.0
+custom_fonts/font = SubResource( 17 )
+text = "NEW ACCOUNT"
+align = 1
+valign = 1
+
+[node name="OTP" type="Control" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="BG" type="ColorRect" parent="Control/OTP"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.156863, 0.164706, 0.211765, 1 )
+
+[node name="Confirm" type="Button" parent="Control/OTP"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = -48.0
+margin_right = -20.0
+margin_bottom = -18.0
+text = "CONFIRM"
+icon_align = 1
+
+[node name="LineEdit" type="LineEdit" parent="Control/OTP"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -113.0
+margin_top = -95.0
+margin_right = 113.0
+margin_bottom = -39.0
+custom_fonts/font = SubResource( 10 )
+align = 1
+max_length = 4
+placeholder_text = "____"
+
+[node name="Label" type="Label" parent="Control/OTP"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -113.0
+margin_top = -180.0
+margin_right = 113.0
+margin_bottom = -125.0
+custom_fonts/font = ExtResource( 8 )
+text = "MASUKAN KODE OTP"
+align = 1
+valign = 1
+
+[node name="Info" type="Label" parent="Control/OTP"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -117.0
+margin_top = -3.5
+margin_right = 117.0
+margin_bottom = 115.5
+custom_fonts/font = SubResource( 12 )
+text = "Kode otp ada di notifikasi"
+
+[node name="Popup" type="Panel" parent="Control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -130.0
+margin_top = -140.5
+margin_right = 130.0
+margin_bottom = 140.5
+
+[node name="Message" type="Label" parent="Control/Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = 82.0
+margin_right = -13.0
+margin_bottom = -41.0
+text = "LOGIN BERHASIL"
+align = 1
+
+[node name="Exit" type="Button" parent="Control/Popup"]
+modulate = Color( 0.972549, 0.972549, 0.94902, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -43.0
+margin_top = 13.0
+margin_right = -14.0
+margin_bottom = 40.0
+icon = ExtResource( 4 )
+flat = true
+icon_align = 1
+expand_icon = true
+
+[node name="TextEditor" type="Control" parent="Control"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+
+[node name="BG" type="ColorRect" parent="Control/TextEditor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.156863, 0.164706, 0.211765, 1 )
+
+[node name="TextEdit" type="TextEdit" parent="Control/TextEditor"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 97.0
+margin_right = -15.0
+margin_bottom = -75.0
+text = "extends node
+signal monster_attack
+
+var num: int = 10
+
+func _ready() -> void:
+	print(\"Hello World\")"
+syntax_highlighting = true
+
+[node name="Label" type="Label" parent="Control/TextEditor"]
+anchor_right = 1.0
+margin_left = 15.0
+margin_right = -15.0
+margin_bottom = 86.0
+text = "TEXT EDITOR"
+align = 1
+valign = 1
+
+[node name="FileDialog" type="FileDialog" parent="Control/TextEditor"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.0
+margin_top = -190.0
+margin_right = 169.0
+margin_bottom = 191.0
+theme = SubResource( 15 )
+window_title = "File Manager"
+access = 1
+
+[node name="BTNS" type="HBoxContainer" parent="Control/TextEditor"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = -54.0
+margin_right = -15.0
+margin_bottom = -21.0
+custom_constants/separation = 12
+alignment = 1
+
+[node name="Save" type="Button" parent="Control/TextEditor/BTNS"]
+margin_right = 159.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+text = "SAVE"
+icon_align = 1
+
+[node name="Load" type="Button" parent="Control/TextEditor/BTNS"]
+margin_left = 171.0
+margin_right = 330.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+text = "LOAD"
+icon_align = 1
